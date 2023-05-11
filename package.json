@@ -1,7 +1,7 @@
 {
   "name": "indentify",
   "displayName": "indentify",
-  "description": "A Visual Studio Code extension to replace space indentation to tabs.",
+  "description": "A Visual Studio Code extension to replace space indentation with tabs.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.78.0"
@@ -13,8 +13,8 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "indentify.helloWorld",
-      "title": "Hello World"
+      "command": "indentify.replace",
+      "title": "Indentify: Replace space indentation with tabs"
     }]
   },
   "scripts": {
