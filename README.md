@@ -1,65 +1,92 @@
-# indentify README
+# Indentify
 
-This is the README for your extension "indentify". After writing up a brief description, we recommend including the following sections.
+A [Visual Studio Code](https://code.visualstudio.com) [extension](https://marketplace.visualstudio.com/VSCode) to replace space indentation with tabs.
+
+1. [Features](#features)
+2. [Uneven Indentation](#uneven-indentation)
+3. [Install](#install)
+4. [Release](#release)
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension, once installed, creates a new command in the VS Code [Command Palette](https://code.visualstudio.com/api/ux-guidelines/command-palette) called **Indentify: Replace space indentation with tabs**.
 
-For example if there is an image subfolder under your extension project workspace:
+When this command is executed, it will convert the space indentation in the current file from 2 spaces to tabs.
 
-\!\[feature X\]\(images/feature-x.png\)
+For example, given the following code below, formatted with 2 space indentation:
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+```
+<div>
+  <ul>
+    <li></li>
+  </ul>
+</div>
+```
 
-## Requirements
+This will be replaced with the following tab indentation:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```
+<div>
+	<ul>
+		<li></li>
+	</ul>
+</div>
+```
 
-## Extension Settings
+NOTE: This command will not replace multiple spaces _within the contents of a line_. The [regular expression](https://en.wikipedia.org/wiki/Regular_expression) only matches spaces at the _beginning of the line_.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Uneven Indentation
 
-For example:
+In the event the file has uneven indentation (for example, 3 spaces of indentation on a line), the command will **round up**, and convert 3 spaces into 2 tabs, with the assumption that the single space was intended to be a full 2 space indentation (total 4 space indentation, or 2 tabs).
 
-This extension contributes the following settings:
+For example, given the following indentation:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```
+<div>
+  <ul>
+   <li></li>
+  </ul>
+</div>
+```
 
-## Known Issues
+This will be replaced with:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```
+<div>
+	<ul>
+		<li></li>
+	</ul>
+</div>
+```
 
-## Release Notes
+This ensures that all leading whitespace indentation is converted to tabs, and no space indentation remains whatsoever (no combination of spaces and tabs).
 
-Users appreciate release notes as you update your extension.
+## Install
 
-### 1.0.0
+1. Clone this repository to your local machine.
 
-Initial release of ...
+2. Install [`vsce`](https://github.com/microsoft/vscode-vsce) globally on your local machine:
 
-### 1.0.1
+In Terminal:
 
-Fixed issue #.
+```
+npm install -g @vscode/vsce
+```
 
-### 1.1.0
+3. Package this extension using `vsce`:
 
-Added features X, Y, and Z.
+In Terminal, change directory to this repository:
 
----
+```
+cd path/to/indentify
+```
 
-## Working with Markdown
+Package this extension:
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+```
+vsce package
+```
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
+## Release
 
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This extension was released on May 11, 2023, and is stable on VS Code version 1.78.0.
