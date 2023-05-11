@@ -87,6 +87,14 @@ Package this extension:
 vsce package
 ```
 
+This will create a `.vsix` file in the root directory of the repo.
+
+4. [Install](https://code.visualstudio.com/docs/editor/extension-marketplace#_install-from-a-vsix) the `.vsix` file:
+
+In VS Code, invoke the Command Palette, and execute command: **Extensions: Install from VSIX...**.
+
+In the file browser, choose the `.vsix` file that was created in the previous step.
+
 ## Release
 
 This extension was released on May 11, 2023, and is stable on VS Code version 1.78.0.
