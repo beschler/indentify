@@ -1,21 +1,41 @@
 {
   "name": "indentify",
-  "displayName": "indentify",
+  "displayName": "Indentify",
   "description": "A Visual Studio Code extension to replace space indentation with tabs.",
   "version": "0.0.1",
+  "publisher": "Beschler",
   "engines": {
     "vscode": "^1.78.0"
   },
+  "icon": "icon.png",
+  "galleryBanner.color": "#a1c281",
+  "keywords": [
+    "indent",
+    "space",
+    "spaces",
+    "tab",
+    "tabs",
+    "whitespace",
+    "replace"
+  ],
   "categories": [
     "Other"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beschler/indentify"
+  },
+  "bugs": "https://github.com/beschler/indentify/issues",
+  "homepage": "https://github.com/beschler/indentify",
   "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "indentify.replace",
-      "title": "Indentify: Replace space indentation with tabs"
-    }]
+    "commands": [
+      {
+        "command": "indentify.replace",
+        "title": "Indentify: Replace space indentation with tabs"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
@@ -27,10 +47,10 @@
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
+    "@vscode/test-electron": "^2.3.0",
     "eslint": "^8.39.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
-    "typescript": "^5.0.4",
-    "@vscode/test-electron": "^2.3.0"
+    "typescript": "^5.0.4"
   }
 }
