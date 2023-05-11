@@ -31,15 +31,12 @@ function deactivate() {}
 function indentifyReplace(line) {
 	let regex = /^\ */;
 	let indent = line.match(regex)[0];
-	console.log( `indent:[` + indent + `]` );
 	let indent_size = Math.ceil(indent.length / 2);
 	let new_indent = "";
 	for(let i = 1; i <= indent_size; i++) {
 		new_indent += "\t";
 	}
-	console.log( `new_indent:[` + new_indent + `]` );
 	let line_replaced = line.replace(regex, new_indent);
-	console.log( `line_replaced:[` + line_replaced + `]` );
 	return line_replaced;
 }
 
