@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 # Visual Studio Code extension package
-.vsix
+*.vsix
